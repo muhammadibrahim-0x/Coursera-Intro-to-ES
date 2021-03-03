@@ -38,7 +38,7 @@ void array_print(uint8_t *pointer_to_data_vector, uint8_t data_vector_size);
  * @brief This function sorts a giver array in decreasing order.
  * 
  *  0th element is the largest, (N-1)th element is the smalest. 
- *  It uses Insertion sort alogrithm.
+ *  It uses Selection sort alogrithm.
  * @param pointer_to_data_vector  pointer holds the adress of the data set
  * @param data_vector_size        number of data set elemets 
  */
