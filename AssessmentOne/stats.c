@@ -10,6 +10,7 @@
 
 #include <stdio.h>
 #include <stdint.h>
+#include <math.h>
 #include "stats.h"
 
 /**
@@ -99,9 +100,10 @@ void array_sort(uint8_t *pointer_to_data_vector /* pointer holds data vector add
   * Selection sort implementation 
   * for each element check if any other elements is bigger,
   * if yes swap them.
-  */ 
+  */
 
   /* Outer loop on each element using index_i */
+  
   for (uint8_t index_i = 0; index_i < data_vector_size; index_i++) { 
     /* maximum value is the value of current element */
     maximum_value_index = index_i;
@@ -113,7 +115,8 @@ void array_sort(uint8_t *pointer_to_data_vector /* pointer holds data vector add
         maximum_value_index = index_j; 
       }
     }
-    /* 
+
+    /*
     * After searching all other elements, If there is a greater, swap them.
     * checks if current index_i not equal curren maximum_value_index 
     */
@@ -128,6 +131,17 @@ void array_sort(uint8_t *pointer_to_data_vector /* pointer holds data vector add
 */
 uint8_t mean_find(uint8_t *pointer_to_data_vector /* pointer holds data vector address */,
                   uint8_t data_vector_size /* the number of element within data set */) {
+    /* Decleration of variable mean value */
+    float mean_value = 0.0;
+    /* loop to add all elements of data set */
+    for (uint8_t index = 0; index < data_vector_size; index++) {
+      /* adding the current element to mean_valu after cating it float */ 
+      mean_value += (float)pointer_to_data_vector[index]; 
+    }
+    /* dividing the summation by the sizr of data set */
+    mean_value /= (float)data_vector_size;
+    /* return the mean value floored to the lowest integer */
+    return (uint8_t)floor(mean_value);
 }
 
 /*
@@ -135,6 +149,19 @@ uint8_t mean_find(uint8_t *pointer_to_data_vector /* pointer holds data vector a
 */
 uint8_t median_find(uint8_t *pointer_to_data_vector /* pointer holds data vector address */,
                     uint8_t data_vector_size /* the number of element within data set */) {
+  /* Decleration of variable median value */
+  float median_value = 0;
+  if (data_vector_size % 2 == 0) { /* if size is even */
+    /* summing the 2 median values */
+    median_value = (float)(pointer_to_data_vector[data_vector_size / 2] +
+                           pointer_to_data_vector[(data_vector_size / 2) + 1]);
+    /* calulate the average of the 2 values */
+    median_value /= 2.0;
+  } else { /* else size is odd */
+    median_value = (float)pointer_to_data_vector[data_vector_size/2];
+  }
+  /* return the median value floored to the lowest integer */
+  return (u_int8_t)floor(median_value);
 }
 
 /*
@@ -142,6 +169,7 @@ uint8_t median_find(uint8_t *pointer_to_data_vector /* pointer holds data vector
 */
 uint8_t maximum_find(uint8_t *pointer_to_data_vector /* pointer holds data vector address */,
                      uint8_t data_vector_size /* the number of element within data set */) {
+  return pointer_to_data_vector[0];
 }
 
 /*
@@ -149,6 +177,7 @@ uint8_t maximum_find(uint8_t *pointer_to_data_vector /* pointer holds data vecto
 */
 uint8_t minimum_find(uint8_t *pointer_to_data_vector /* pointer holds data vector address */,
                      uint8_t data_vector_size /* the number of element within data set */) {
+  return pointer_to_data_vector[data_vector_size-1];
 }
 
 /* 
