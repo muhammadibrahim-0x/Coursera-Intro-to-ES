@@ -58,10 +58,10 @@ uint8_t mean_find(uint8_t *pointer_to_data_vector, uint8_t data_vector_size);
 /**
  * @brief This function calculate the median of data set elements.
  * 
- * if  (size is even){
- *  median = data_set[size/2] 
- * } else if (size is odd) {
- *   median = (data_set[(size-1)/2] + data_set[(size_1)/2])/2
+ * if  (size is odd){
+ *  median = data_set[round(size/2)] 
+ * } else if (size is even) {
+ *   median = (data_set[size/2] + data_set[(size/2)+1])/2
  * }
  * 
  * @param pointer_to_data_vector  pointer holds the adress of the data set
