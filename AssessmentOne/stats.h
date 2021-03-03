@@ -1,6 +1,6 @@
 /**
  * @file stats.h
- * @author Muhammad Ibrahim (muhammadibrahim.muhammad@studneti.polito.it)
+ * @author Muhammad Ibrahim (muhammadibrahim.muhammad@studenti.polito.it)
  * @brief This file contains the functions declearations
  * @version 1.0
  * @date 2021-03-03
